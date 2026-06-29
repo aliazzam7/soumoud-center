@@ -1,21 +1,9 @@
 import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
+import useInView from "../../hooks/useInView";
 import "./GalleryPreview.css";
 
-function useInView(options = {}) {
-  const ref = useRef(null);
-  const [inView, setInView] = useState(false);
-  useEffect(() => {
-    const el = ref.current;
-    if (!el) return;
-    const obs = new IntersectionObserver(([e]) => {
-      if (e.isIntersecting) { setInView(true); obs.disconnect(); }
-    }, { threshold: 0.15, ...options });
-    obs.observe(el);
-    return () => obs.disconnect();
-  }, []);
-  return [ref, inView];
-}
+
 
 const galleryImgs = [
   { src: "/gallery0.jpeg", alt: "Our dedicated teacher celebrating with her students" },

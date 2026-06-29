@@ -1,27 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { FaStar, FaQuoteLeft } from "react-icons/fa";
+import useInView from "../../hooks/useInView";
 import "./Testimonials.css";
-
-function useInView(options = {}) {
-  const ref = useRef(null);
-  const [inView, setInView] = useState(false);
-  useEffect(() => {
-    const el = ref.current;
-    if (!el) return;
-    const obs = new IntersectionObserver(
-      ([e]) => {
-        if (e.isIntersecting) {
-          setInView(true);
-          obs.disconnect();
-        }
-      },
-      { threshold: 0.1, ...options }
-    );
-    obs.observe(el);
-    return () => obs.disconnect();
-  }, []);
-  return [ref, inView];
-}
 
 const testimonials = [
   {

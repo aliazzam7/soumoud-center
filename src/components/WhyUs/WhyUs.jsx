@@ -3,22 +3,8 @@ import {
   FaHeart, FaUsers, FaAward,
   FaCheckCircle, FaLeaf, FaStar,
 } from "react-icons/fa";
+import useInView from "../../hooks/useInView";
 import "./WhyUs.css";
-
-function useInView(options = {}) {
-  const ref = useRef(null);
-  const [inView, setInView] = useState(false);
-  useEffect(() => {
-    const el = ref.current;
-    if (!el) return;
-    const obs = new IntersectionObserver(([e]) => {
-      if (e.isIntersecting) { setInView(true); obs.disconnect(); }
-    }, { threshold: 0.15, ...options });
-    obs.observe(el);
-    return () => obs.disconnect();
-  }, []);
-  return [ref, inView];
-}
 
 const whyUs = [
   { icon: <FaHeart />,       title: "Caring Environment", desc: "A warm, family-like atmosphere where every student feels seen, valued, and motivated." },
