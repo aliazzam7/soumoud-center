@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+
 import { FaStar, FaQuoteLeft } from "react-icons/fa";
 import useInView from "../../hooks/useInView";
 import "./Testimonials.css";

@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+
 import {
   FaHeart, FaUsers, FaAward,
   FaCheckCircle, FaLeaf, FaStar,
