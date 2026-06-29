@@ -2,18 +2,26 @@ import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import "./AboutPreview.css";
 
-function useInView(options = {}) {
+function useInView() {
   const ref = useRef(null);
   const [inView, setInView] = useState(false);
+
   useEffect(() => {
     const el = ref.current;
     if (!el) return;
+
     const obs = new IntersectionObserver(([e]) => {
-      if (e.isIntersecting) { setInView(true); obs.disconnect(); }
-    }, { threshold: 0.15, ...options });
+      if (e.isIntersecting) {
+        setInView(true);
+        obs.disconnect();
+      }
+    }, { threshold: 0.15 });
+
     obs.observe(el);
+
     return () => obs.disconnect();
   }, []);
+
   return [ref, inView];
 }
 
