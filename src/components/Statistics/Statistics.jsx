@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import useInView from "../../hooks/useInView";
 import "./Statistics.css";
 

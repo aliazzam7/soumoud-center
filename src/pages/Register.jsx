@@ -51,7 +51,7 @@ const VALIDATORS = {
   // letters, spaces, Arabic, hyphens only — no digits
   nameOnly:  (v) => /^[\u0600-\u06FFa-zA-Z\s\-'.]+$/.test(v.trim()),
   // digits, spaces, +, hyphens only
-  phoneOnly: (v) => /^[\d\s\+\-()]+$/.test(v.trim()) && v.replace(/\D/g, "").length >= 7,
+  phoneOnly: (v) => /^[\d\s+()-]+$/.test(v.trim()) && v.replace(/\D/g, "").length >= 7,
   // age 4–25
   ageValid:  (v) => {
     const n = Number(v);
