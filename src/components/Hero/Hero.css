@@ -1,0 +1,409 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap");
+
+:root {
+  --y:   #ffc107;
+  --yd:  #e6a800;
+  --yl:  #fff8e1;
+  --blk: #111111;
+  --mid: #555555;
+  --lt:  #999999;
+  --bdr: #e8e8e8;
+  --bg:  #f9f9f9;
+  --wh:  #ffffff;
+  --nav: 78px;
+  --ease: cubic-bezier(.4,0,.2,1);
+}
+
+/* ── section ────────────────────────────────────────────────── */
+.hero {
+  position: relative;
+  min-height: calc(100vh - var(--nav));
+  background: var(--wh);
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: center;
+  overflow: hidden;
+  font-family: "Poppins", sans-serif;
+}
+
+/* ── layout: true edge-to-edge ──────────────────────────────── */
+.hero__wrap {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  /* no max-width, no margin auto, no side padding */
+  padding: 0 0 48px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+  align-items: start;
+}
+
+/* ── LEFT ───────────────────────────────────────────────────── */
+.hero__left {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  /* flush left — only right padding for separation from right column */
+  padding: 32px 48px 0 56px;
+}
+
+/* ── RIGHT ──────────────────────────────────────────────────── */
+.hero__right {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  /* flush right */
+  padding: 0 56px 0 32px;
+  animation: fadeUp .55s .12s var(--ease) both;
+}
+
+/* ── eyebrow ────────────────────────────────────────────────── */
+.hero__eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-size: clamp(1rem, 1.5vw, 1.25rem);
+  font-weight: 700;
+  color: var(--y);
+  letter-spacing: -0.2px;
+  animation: fadeUp .55s var(--ease) both;
+  margin-bottom: 16px;
+}
+
+.hero__dot-live {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--y);
+  flex-shrink: 0;
+  animation: livePulse 2s infinite;
+}
+
+@keyframes livePulse {
+  0%,100% { box-shadow: 0 0 0 0 #ffc10766; }
+  60%      { box-shadow: 0 0 0 9px transparent; }
+}
+
+/* ── headline ───────────────────────────────────────────────── */
+.hero__h1 {
+  font-size: clamp(2.4rem, 4vw, 3.5rem);
+  font-weight: 900;
+  line-height: 1.1;
+  color: var(--blk);
+  letter-spacing: -2px;
+  margin: 0 0 14px;
+  animation: fadeUp .55s .08s var(--ease) both;
+}
+
+.hero__word {
+  display: inline-block;
+  color: var(--y);
+  position: relative;
+  transition: opacity .32s var(--ease), transform .32s var(--ease);
+}
+
+.hero__word::after {
+  content: "";
+  position: absolute;
+  left: 0; right: 0;
+  bottom: 2px;
+  height: 4px;
+  background: var(--y);
+  border-radius: 2px;
+  opacity: .28;
+}
+
+.hero__word--in  { opacity: 1; transform: translateY(0); }
+.hero__word--out { opacity: 0; transform: translateY(-12px); }
+
+/* ── accent line ────────────────────────────────────────────── */
+.hero__accent-line {
+  width: 48px;
+  height: 4px;
+  background: var(--y);
+  border-radius: 2px;
+  margin-bottom: 20px;
+  animation: fadeUp .55s .14s var(--ease) both;
+}
+
+/* ── subline ────────────────────────────────────────────────── */
+.hero__sub {
+  font-size: 15.5px;
+  line-height: 1.8;
+  color: var(--mid);
+  max-width: 460px;
+  margin: 0 0 30px;
+  animation: fadeUp .55s .2s var(--ease) both;
+}
+
+/* ── buttons ────────────────────────────────────────────────── */
+.hero__btns {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: 26px;
+  animation: fadeUp .55s .26s var(--ease) both;
+}
+
+.hero__btn-main {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 13px 28px;
+  background: var(--blk);
+  color: var(--wh);
+  font-family: "Poppins", sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  border-radius: 11px;
+  text-decoration: none;
+  transition: background .24s var(--ease), transform .24s var(--ease), box-shadow .24s var(--ease);
+  box-shadow: 0 4px 18px rgba(17,17,17,.16);
+}
+
+.hero__btn-main:hover {
+  background: var(--y);
+  color: var(--blk);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(255,193,7,.38);
+}
+
+.hero__btn-main svg { transition: transform .22s var(--ease); }
+.hero__btn-main:hover svg { transform: translateX(4px); }
+
+.hero__btn-ghost {
+  display: inline-flex;
+  align-items: center;
+  padding: 13px 26px;
+  background: transparent;
+  color: var(--blk);
+  font-family: "Poppins", sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  border-radius: 11px;
+  text-decoration: none;
+  border: 1.5px solid var(--bdr);
+  transition: border-color .22s var(--ease), background .22s var(--ease), transform .22s var(--ease);
+}
+
+.hero__btn-ghost:hover {
+  border-color: var(--y);
+  background: var(--yl);
+  transform: translateY(-2px);
+}
+
+/* ── pills ──────────────────────────────────────────────────── */
+.hero__pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 9px;
+  animation: fadeUp .55s .32s var(--ease) both;
+}
+
+.hero__pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 7px 15px;
+  background: var(--bg);
+  border: 1px solid var(--bdr);
+  border-radius: 100px;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--mid);
+  transition: border-color .2s, background .2s, color .2s;
+  cursor: default;
+}
+
+.hero__pill:hover {
+  border-color: var(--y);
+  background: var(--yl);
+  color: var(--blk);
+}
+
+.hero__pill-icon {
+  font-size: 13px;
+  color: var(--y);
+  flex-shrink: 0;
+}
+
+/* ── image box ──────────────────────────────────────────────── */
+.hero__imgbox {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border-radius: 22px;
+  overflow: hidden;
+  border: 1px solid var(--bdr);
+  box-shadow: 0 2px 4px rgba(0,0,0,.04), 0 16px 48px rgba(0,0,0,.08);
+  background: var(--yl);
+  position: relative;
+}
+
+.hero__centerimg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 30%;
+  display: block;
+}
+
+.hero__imgfallback {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  background: var(--yl);
+}
+
+.hero__fallback-logo {
+  width: 88px;
+  height: 88px;
+  object-fit: contain;
+}
+
+.hero__imgfallback p {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--blk);
+  margin: 0;
+}
+
+.hero__centerimg:not([src=""]) ~ .hero__imgfallback { display: none; }
+
+/* ── label ──────────────────────────────────────────────────── */
+.hero__imglabel {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+}
+
+.hero__imglabel-name {
+  font-size: 17px;
+  font-weight: 800;
+  color: var(--blk);
+  letter-spacing: -.3px;
+}
+
+.hero__imglabel-sub {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--y);
+  letter-spacing: .5px;
+  text-transform: uppercase;
+}
+
+/* ── stat row ───────────────────────────────────────────────── */
+.hero__statrow {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  width: 100%;
+}
+
+.hero__statbox {
+  background: var(--wh);
+  border: 1px solid var(--bdr);
+  border-radius: 14px;
+  padding: 16px 12px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  transition: border-color .22s, box-shadow .22s, transform .22s;
+}
+
+.hero__statbox:hover {
+  border-color: var(--y);
+  box-shadow: 0 4px 20px rgba(255,193,7,.14);
+  transform: translateY(-3px);
+}
+
+.hero__statbox strong {
+  font-size: 24px;
+  font-weight: 900;
+  color: var(--y);
+  letter-spacing: -1px;
+  line-height: 1;
+}
+
+.hero__statbox span {
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--lt);
+  text-transform: uppercase;
+  letter-spacing: .4px;
+  line-height: 1.3;
+}
+
+/* ── scroll cue ─────────────────────────────────────────────── */
+.hero__scrollcue {
+  position: absolute;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 7px;
+  z-index: 3;
+  animation: fadeUp 1s .8s var(--ease) both;
+}
+
+.hero__scrollcue span {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--lt);
+}
+
+.hero__scrollline {
+  width: 1.5px;
+  height: 44px;
+  background: linear-gradient(to bottom, var(--y), transparent);
+  border-radius: 1px;
+  animation: scrollDrop 1.8s ease-in-out infinite;
+}
+
+@keyframes scrollDrop {
+  0%   { transform: scaleY(0); transform-origin: top; opacity: 1; }
+  50%  { transform: scaleY(1); transform-origin: top; opacity: 1; }
+  100% { transform: scaleY(1); transform-origin: bottom; opacity: 0; }
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(22px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ── responsive ─────────────────────────────────────────────── */
+@media (max-width: 960px) {
+  .hero__wrap {
+    grid-template-columns: 1fr;
+    gap: 40px;
+    padding: 24px 24px 80px;
+    text-align: center;
+  }
+  .hero__left  { padding: 0; }
+  .hero__right { padding: 0; align-items: center; }
+  .hero__eyebrow     { margin: 0 auto 14px; }
+  .hero__accent-line { margin: 0 auto 18px; }
+  .hero__sub         { margin: 0 auto 26px; }
+  .hero__btns        { justify-content: center; }
+  .hero__pills       { justify-content: center; }
+  .hero__imglabel    { align-items: center; }
+  .hero__right       { order: -1; }
+}
+
+@media (max-width: 520px) {
+  .hero__h1 { font-size: 2rem; letter-spacing: -1px; }
+  .hero__statrow { grid-template-columns: 1fr; }
+}

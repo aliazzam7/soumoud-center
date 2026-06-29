@@ -1,0 +1,445 @@
+/* ══════════════════════════════════════════════════════════════
+   ContactSplit.css — Full Responsive
+══════════════════════════════════════════════════════════════ */
+.cs-section {
+  --y:    #ffc107;
+  --yd:   #e6a800;
+  --yl:   #fff8e1;
+  --blk:  #111111;
+  --mid:  #555555;
+  --lt:   #999999;
+  --bdr:  #e8e8e8;
+  --bg:   #f9f9f9;
+  --wh:   #ffffff;
+  --wa:   #25d366;
+  --ig:   #e1306c;
+  --ease: cubic-bezier(.4,0,.2,1);
+
+  background: var(--bg);
+  padding: 72px 56px 96px;
+  font-family: "Poppins", sans-serif;
+}
+
+.cs-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 56px;
+  align-items: start;
+}
+
+/* ══════════════════════════════════════════════════════════════
+   LEFT — Info
+══════════════════════════════════════════════════════════════ */
+.cs-left__title {
+  font-size: clamp(1.3rem, 3vw, 1.9rem);
+  font-weight: 800;
+  color: var(--blk);
+  letter-spacing: -.5px;
+  margin: 0 0 10px;
+}
+.cs-left__sub {
+  font-size: 14px;
+  line-height: 1.75;
+  color: var(--mid);
+  margin: 0 0 24px;
+}
+
+/* ── Info cards ───────────────────────────────────────────── */
+.cs-info-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.cs-info-card {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 14px 16px;
+  border-radius: 14px;
+  border: 1px solid var(--bdr);
+  background: var(--wh);
+  text-decoration: none;
+  transition: border-color .22s var(--ease), box-shadow .22s var(--ease), transform .22s var(--ease);
+  cursor: pointer;
+}
+.cs-info-card:hover {
+  transform: translateX(4px);
+  box-shadow: 0 4px 20px rgba(0,0,0,.06);
+}
+
+.cs-info-card__icon-wrap {
+  width: 42px; height: 42px;
+  border-radius: 12px;
+  flex-shrink: 0;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 18px;
+  transition: transform .22s;
+}
+.cs-info-card:hover .cs-info-card__icon-wrap { transform: scale(1.1); }
+
+.cs-info-card__icon-wrap--wa    { background: rgba(37,211,102,.12); color: var(--wa); }
+.cs-info-card__icon-wrap--ig    { background: rgba(225,48,108,.1);  color: var(--ig); }
+.cs-info-card__icon-wrap--map   { background: rgba(255,193,7,.15);  color: var(--yd); }
+.cs-info-card__icon-wrap--hours { background: rgba(17,17,17,.06);   color: var(--blk); }
+
+.cs-info-card--wa:hover   { border-color: var(--wa); }
+.cs-info-card--ig:hover   { border-color: var(--ig); }
+.cs-info-card--map:hover  { border-color: var(--y);  }
+
+.cs-info-card__body {
+  display: flex; flex-direction: column; gap: 2px;
+  flex: 1;
+  min-width: 0; /* prevent overflow */
+}
+.cs-info-card__body strong {
+  font-size: 14px; font-weight: 700; color: var(--blk);
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+}
+.cs-info-card__body span {
+  font-size: 12.5px; color: var(--mid);
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+}
+
+.cs-info-card__arrow {
+  font-size: 16px;
+  color: var(--lt);
+  flex-shrink: 0;
+  transition: color .2s, transform .2s;
+}
+.cs-info-card:hover .cs-info-card__arrow {
+  color: var(--blk);
+  transform: translate(2px, -2px);
+}
+
+/* ── Map card ─────────────────────────────────────────────── */
+.cs-map-card {
+  display: block;
+  border-radius: 16px;
+  border: 1px solid var(--bdr);
+  overflow: hidden;
+  text-decoration: none;
+  background: var(--wh);
+  transition: border-color .22s, box-shadow .22s, transform .22s;
+}
+.cs-map-card:hover {
+  border-color: var(--y);
+  box-shadow: 0 8px 32px rgba(255,193,7,.12);
+  transform: translateY(-3px);
+}
+
+.cs-map-card__visual {
+  position: relative;
+  height: 150px;
+  background: #e8f0e8;
+  overflow: hidden;
+}
+
+.cs-map-card__grid {
+  position: absolute; inset: 0;
+  background-image:
+    linear-gradient(rgba(200,220,200,.6) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(200,220,200,.6) 1px, transparent 1px);
+  background-size: 32px 32px;
+}
+.cs-map-card__grid::before {
+  content: "";
+  position: absolute;
+  top: 50%; left: 30%;
+  width: 40%; height: 12px;
+  background: rgba(255,255,255,.85);
+  border-radius: 6px;
+  transform: translateY(-50%);
+  box-shadow: 0 20px 0 rgba(255,255,255,.7), 0 -20px 0 rgba(255,255,255,.5);
+}
+.cs-map-card__grid::after {
+  content: "";
+  position: absolute;
+  top: 20%; left: 0; right: 0;
+  height: 10px;
+  background: rgba(255,255,255,.6);
+  border-radius: 5px;
+}
+
+.cs-map-card__pin {
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -60%);
+  width: 44px; height: 44px;
+  background: var(--y);
+  border-radius: 50% 50% 50% 0;
+  rotate: -45deg;
+  display: flex; align-items: center; justify-content: center;
+  box-shadow: 0 4px 16px rgba(255,193,7,.45);
+  animation: pinBounce 2s ease-in-out infinite;
+}
+.cs-map-card__pin svg {
+  rotate: 45deg;
+  font-size: 20px;
+  color: var(--blk);
+}
+@keyframes pinBounce {
+  0%,100% { transform: translate(-50%, -60%); }
+  50%      { transform: translate(-50%, -68%); }
+}
+
+.cs-map-card__label {
+  position: absolute;
+  bottom: 12px; left: 50%;
+  transform: translateX(-50%);
+  background: var(--wh);
+  border-radius: 100px;
+  padding: 5px 14px;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--blk);
+  white-space: nowrap;
+  box-shadow: 0 2px 10px rgba(0,0,0,.1);
+}
+
+.cs-map-card__footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 13px 18px;
+  border-top: 1px solid var(--bdr);
+}
+.cs-map-card__footer span:first-child {
+  font-size: 13px; font-weight: 600; color: var(--blk);
+}
+.cs-map-card__arrow {
+  font-size: 16px; color: var(--lt);
+  flex-shrink: 0;
+  transition: color .2s, transform .2s;
+}
+.cs-map-card:hover .cs-map-card__arrow {
+  color: var(--yd);
+  transform: translate(2px, -2px);
+}
+
+/* ══════════════════════════════════════════════════════════════
+   RIGHT — Form
+══════════════════════════════════════════════════════════════ */
+.cs-form-card {
+  background: var(--wh);
+  border: 1px solid var(--bdr);
+  border-radius: 22px;
+  padding: 40px 36px;
+  box-shadow: 0 4px 32px rgba(0,0,0,.05);
+  /* stay at top when columns stack */
+  position: sticky;
+  top: 100px;
+}
+.cs-form__title {
+  font-size: clamp(1.2rem, 3vw, 1.7rem);
+  font-weight: 800;
+  color: var(--blk);
+  letter-spacing: -.4px;
+  margin: 0 0 8px;
+}
+.cs-form__sub {
+  font-size: 13.5px;
+  line-height: 1.7;
+  color: var(--mid);
+  margin: 0 0 24px;
+}
+
+.cs-form { display: flex; flex-direction: column; gap: 20px; }
+
+.cs-field { display: flex; flex-direction: column; gap: 8px; }
+.cs-label {
+  display: flex; align-items: center; gap: 7px;
+  font-size: 13px; font-weight: 700; color: var(--blk);
+}
+.cs-label__icon { color: var(--y); font-size: 13px; }
+
+.cs-input, .cs-textarea {
+  width: 100%;
+  padding: 12px 16px;
+  border: 1.5px solid var(--bdr);
+  border-radius: 12px;
+  font-family: "Poppins", sans-serif;
+  font-size: 14px;
+  color: var(--blk);
+  background: var(--bg);
+  outline: none;
+  transition: border-color .22s, box-shadow .22s;
+  resize: none;
+  box-sizing: border-box;
+}
+.cs-input:focus, .cs-textarea:focus {
+  border-color: var(--y);
+  box-shadow: 0 0 0 3px rgba(255,193,7,.12);
+  background: var(--wh);
+}
+.cs-input::placeholder, .cs-textarea::placeholder { color: var(--lt); }
+
+/* ── Person picker ──────────────────────────────────────────── */
+.cs-person-cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+.cs-person-card {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 13px 14px;
+  border-radius: 14px;
+  border: 2px solid var(--bdr);
+  background: var(--bg);
+  cursor: pointer;
+  font-family: "Poppins", sans-serif;
+  text-align: left;
+  transition: border-color .22s, background .22s, box-shadow .22s, transform .2s;
+  position: relative;
+  min-width: 0;
+}
+.cs-person-card:hover {
+  border-color: var(--y);
+  background: var(--yl);
+  transform: translateY(-2px);
+}
+.cs-person-card--active {
+  border-color: var(--y);
+  background: var(--yl);
+  box-shadow: 0 4px 20px rgba(255,193,7,.18);
+}
+
+.cs-person-card__avatar {
+  width: 38px; height: 38px;
+  border-radius: 50%;
+  background: var(--bdr);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 16px; font-weight: 900; color: var(--wh);
+  flex-shrink: 0;
+  transition: background .22s;
+}
+.cs-person-card--active .cs-person-card__avatar {
+  box-shadow: 0 3px 12px rgba(255,193,7,.35);
+}
+
+.cs-person-card__info { flex: 1; min-width: 0; }
+.cs-person-card__info strong {
+  display: block; font-size: 13.5px; font-weight: 700; color: var(--blk);
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+}
+.cs-person-card__info span {
+  font-size: 11px; color: var(--mid);
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+}
+
+.cs-person-card__check {
+  color: var(--yd); font-size: 15px; flex-shrink: 0;
+}
+
+/* ── Preview ────────────────────────────────────────────────── */
+.cs-preview {
+  background: rgba(37,211,102,.06);
+  border: 1px solid rgba(37,211,102,.25);
+  border-radius: 12px;
+  padding: 14px 16px;
+}
+.cs-preview__label {
+  font-size: 11px; font-weight: 700; color: #25d366;
+  text-transform: uppercase; letter-spacing: .8px; margin: 0 0 8px;
+}
+.cs-preview__text {
+  font-size: 13px; line-height: 1.7; color: var(--mid);
+  white-space: pre-wrap; margin: 0;
+  word-break: break-word;
+}
+
+/* ── Submit ─────────────────────────────────────────────────── */
+.cs-submit {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  padding: 15px 20px;
+  background: #25d366;
+  color: var(--wh);
+  font-family: "Poppins", sans-serif;
+  font-size: 15px; font-weight: 800;
+  border: none; border-radius: 14px;
+  cursor: pointer;
+  transition: filter .22s, transform .22s, box-shadow .22s, background .22s;
+  box-shadow: 0 6px 24px rgba(37,211,102,.3);
+  width: 100%;
+  white-space: nowrap;
+}
+.cs-submit:hover:not(:disabled) {
+  filter: brightness(1.08);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 30px rgba(37,211,102,.4);
+}
+.cs-submit:disabled {
+  background: var(--bdr);
+  color: var(--lt);
+  cursor: not-allowed;
+  box-shadow: none;
+}
+.cs-submit--sent {
+  background: var(--y) !important;
+  color: var(--blk) !important;
+  box-shadow: 0 6px 24px rgba(255,193,7,.35) !important;
+}
+
+/* ══════════════════════════════════════════════════════════════
+   RESPONSIVE
+══════════════════════════════════════════════════════════════ */
+
+/* ── Tablet 960px ───────────────────────────────────────────── */
+@media (max-width: 960px) {
+  .cs-section {
+    padding: 56px 32px 72px;
+  }
+  .cs-inner {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  /* on tablet: form comes FIRST, info below */
+  .cs-right { order: -1; }
+  .cs-form-card {
+    position: static; /* remove sticky on mobile */
+  }
+}
+
+/* ── Mobile 640px ───────────────────────────────────────────── */
+@media (max-width: 640px) {
+  .cs-section {
+    padding: 40px 16px 56px;
+  }
+  .cs-form-card {
+    padding: 28px 20px;
+    border-radius: 16px;
+  }
+  .cs-form {
+    gap: 18px;
+  }
+  .cs-submit {
+    font-size: 14px;
+    padding: 14px 16px;
+  }
+}
+
+/* ── Small mobile 420px ─────────────────────────────────────── */
+@media (max-width: 420px) {
+  .cs-person-cards {
+    grid-template-columns: 1fr;
+  }
+  .cs-info-card__body strong,
+  .cs-info-card__body span {
+    white-space: normal;
+  }
+  .cs-map-card__label {
+    font-size: 11px;
+    padding: 4px 10px;
+  }
+  .cs-submit {
+    font-size: 13px;
+  }
+}

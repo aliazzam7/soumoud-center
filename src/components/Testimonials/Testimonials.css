@@ -1,0 +1,180 @@
+/* ══════════════════════════════════════════════════════════════
+   Testimonials.css  —  grid / all-visible layout
+══════════════════════════════════════════════════════════════ */
+
+.tm-section {
+  --y:    #ffc107;
+  --yd:   #e6a800;
+  --blk:  #111111;
+  --mid:  #4a4a4a;
+  --lt:   #888888;
+  --bdr:  #e8e8e8;
+  --bg:   #fafafa;
+  --wh:   #ffffff;
+  --ease: cubic-bezier(.4, 0, .2, 1);
+
+  background: var(--wh);
+  padding: 100px 48px 80px;
+  font-family: "Poppins", sans-serif;
+}
+
+/* ── Fade-in ─────────────────────────────────────────── */
+.hs-fade {
+  opacity: 0;
+  transform: translateY(32px);
+  transition: opacity .7s var(--ease), transform .7s var(--ease);
+}
+.hs-fade--in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ── Header ──────────────────────────────────────────── */
+.tm-head {
+  text-align: center;
+  max-width: 640px;
+  margin: 0 auto 56px;
+}
+
+.tm-eyebrow {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: var(--y);
+  margin-bottom: 14px;
+}
+
+.tm-h2 {
+  font-size: clamp(1.75rem, 3.5vw, 2.6rem);
+  font-weight: 800;
+  color: var(--blk);
+  line-height: 1.2;
+  margin: 0 0 14px;
+}
+
+.tm-yellow { color: var(--y); }
+
+.tm-accent-line {
+  width: 44px;
+  height: 4px;
+  background: var(--y);
+  border-radius: 2px;
+  margin: 0 auto 16px;
+}
+
+.tm-subhead {
+  font-size: 14.5px;
+  color: var(--lt);
+  line-height: 1.7;
+  margin: 0;
+}
+
+/* ── Grid ────────────────────────────────────────────── */
+.tm-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  max-width: 1160px;
+  margin: 0 auto;
+}
+
+/* ── Card ────────────────────────────────────────────── */
+.tm-card {
+  background: var(--bg);
+  border: 1px solid var(--bdr);
+  border-radius: 20px;
+  padding: 36px 32px 28px;
+  display: flex;
+  flex-direction: column;
+  animation: tmIn .45s var(--ease) both;
+  transition: box-shadow .25s var(--ease), transform .25s var(--ease);
+}
+
+.tm-card:hover {
+  box-shadow: 0 8px 32px rgba(0,0,0,.08);
+  transform: translateY(-4px);
+}
+
+@keyframes tmIn {
+  from { opacity: 0; transform: scale(.97); }
+  to   { opacity: 1; transform: scale(1);   }
+}
+
+/* ── Quote icon ──────────────────────────────────────── */
+.tm-quote-icon {
+  font-size: 26px;
+  color: var(--y);
+  opacity: .5;
+  margin-bottom: 18px;
+  /* icon is LTR but card is RTl — keep it flipped to RTL side */
+  align-self: flex-end;
+}
+
+/* ── Feedback text (Arabic) ──────────────────────────── */
+.tm-text {
+  font-size: 14.5px;
+  line-height: 1.9;
+  color: var(--mid);
+  margin: 0 0 24px;
+  font-style: italic;
+  flex: 1;
+  /* Arabic font fallback */
+  font-family: "Poppins", "Segoe UI", "Noto Sans Arabic", sans-serif;
+}
+
+/* ── Footer: stars + role ────────────────────────────── */
+.tm-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-top: 1px solid var(--bdr);
+  padding-top: 16px;
+  direction: ltr; /* stars & "Parent" always LTR */
+}
+
+.tm-stars {
+  display: flex;
+  gap: 3px;
+  color: var(--y);
+  font-size: 13px;
+}
+
+.tm-role {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--lt);
+  font-family: "Poppins", sans-serif;
+}
+
+/* ── Responsive ──────────────────────────────────────── */
+
+/* Tablet: 2 columns */
+@media (max-width: 1024px) {
+  .tm-section {
+    padding: 72px 32px 64px;
+  }
+  .tm-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Mobile: 1 column */
+@media (max-width: 600px) {
+  .tm-section {
+    padding: 56px 20px 48px;
+  }
+  .tm-grid {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+  .tm-card {
+    padding: 28px 22px 22px;
+  }
+  .tm-h2 {
+    font-size: 1.6rem;
+  }
+}

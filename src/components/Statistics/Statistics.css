@@ -1,0 +1,52 @@
+/* ══════════════════════════════════════════════════════════════
+   Statistics.css
+══════════════════════════════════════════════════════════════ */
+.st-section {
+  --y:    #ffc107;
+  --blk:  #111111;
+  --ease: cubic-bezier(.4,0,.2,1);
+  background: var(--blk);
+  padding: 72px 56px;
+  font-family: "Poppins", sans-serif;
+}
+.st-inner {
+  max-width: 1000px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  text-align: center;
+}
+.st-stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  padding: 28px 16px;
+  border-radius: 16px;
+  border: 1px solid rgba(255,193,7,.18);
+  transition: border-color .22s, background .22s;
+}
+.st-stat:hover {
+  border-color: var(--y);
+  background: rgba(255,193,7,.05);
+}
+.st-num {
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 900;
+  color: var(--y);
+  letter-spacing: -2px;
+  line-height: 1;
+}
+.st-label {
+  font-size: 12px;
+  font-weight: 500;
+  color: rgba(255,255,255,.55);
+  text-transform: uppercase;
+  letter-spacing: .8px;
+}
+
+@media (max-width: 960px) {
+  .st-section { padding: 56px 24px; }
+  .st-inner   { grid-template-columns: repeat(2, 1fr); }
+}
