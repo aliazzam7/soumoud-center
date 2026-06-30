@@ -23,7 +23,7 @@ export default function Home() {
       <Statistics />
       <WhyUs />
       <GalleryPreview />
-      <Testimonials />
+      <Testimonials limit={3} showMoreButton={true} />
       <CTA />
       <Footer />
     </div>

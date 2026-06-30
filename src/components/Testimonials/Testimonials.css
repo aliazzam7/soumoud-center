@@ -150,6 +150,42 @@
   font-family: "Poppins", sans-serif;
 }
 
+/* ── More button ─────────────────────────────────────── */
+.tm-more-wrap {
+  display: flex;
+  justify-content: center;
+  margin-top: 48px;
+}
+
+.tm-more-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 13px 34px;
+  border-radius: 999px;
+  background: var(--y);
+  color: var(--blk);
+  font-family: "Poppins", sans-serif;
+  font-size: 13.5px;
+  font-weight: 700;
+  letter-spacing: .5px;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  transition: background .25s var(--ease), transform .25s var(--ease), box-shadow .25s var(--ease);
+}
+
+.tm-more-btn:hover {
+  background: var(--yd);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(255,193,7,.35);
+}
+
+.tm-more-btn:active {
+  transform: translateY(-1px);
+}
+
+
 /* ── Responsive ──────────────────────────────────────── */
 
 /* Tablet: 2 columns */
@@ -176,5 +212,15 @@
   }
   .tm-h2 {
     font-size: 1.6rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .tm-more-wrap {
+    margin-top: 32px;
+  }
+  .tm-more-btn {
+    padding: 11px 28px;
+    font-size: 13px;
   }
 }

@@ -23,6 +23,7 @@
   padding-bottom: 5rem;
   font-family: 'Segoe UI', system-ui, sans-serif;
   box-sizing: border-box;
+  overscroll-behavior-x: none;
 }
 
 *, *::before, *::after {
@@ -305,7 +306,15 @@
   accent-color: var(--primary-dark);
   height: 4px;
   min-width: 0;
+  touch-action: none;
 }
+
+/* .rg-slider-row input[type="range"] {
+  flex: 1;
+  accent-color: var(--primary-dark);
+  height: 4px;
+  min-width: 0;
+} */
 
 .rg-slider-val {
   min-width: 36px;

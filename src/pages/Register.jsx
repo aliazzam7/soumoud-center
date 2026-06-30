@@ -44,7 +44,10 @@ const EMPTY_FORM = {
 };
 
 // ── Sanitize: strip any HTML/script tags from a string (XSS protection)
-const sanitize = (str) => str.replace(/<[^>]*>/g, "").replace(/[<>"'`]/g, "");
+const sanitize = (str) => {
+  if (typeof str !== "string") return str;
+  return str.replace(/<[^>]*>/g, "").replace(/[<>"'`]/g, "");
+};
 
 // ── Validators
 const VALIDATORS = {
