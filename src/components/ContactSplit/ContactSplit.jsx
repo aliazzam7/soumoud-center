@@ -6,7 +6,7 @@ const persons = [
   {
     id:     "intisar",
     name:   "Intisar",
-    role:   "Director & Head Teacher",
+    role:   "Co-Founder & Teacher",
     phone:  "96171240366",
     avatar: "I",
     color:  "#ffc107",

@@ -286,7 +286,7 @@
   transition: background 0.1s;
 }
 
-.rg-select-option:hover { background: rgba(255,193,7,0.12); color: var(--black); }
+/* .rg-select-option:hover { background: rgba(255,193,7,0.12); color: var(--black); } */
 .rg-select-option.selected {
   background: var(--black);
   color: var(--primary);
@@ -349,10 +349,10 @@
   font-family: inherit;
 }
 
-.rg-all-btn:hover {
+/* .rg-all-btn:hover {
   border-color: var(--primary-dark);
   background: rgba(255,193,7,0.06);
-}
+} */
 
 .rg-all-btn--on {
   border-color: var(--primary-dark);
@@ -412,11 +412,11 @@
   width: 100%;
 }
 
-.rg-subj-btn:hover {
+/* .rg-subj-btn:hover {
   border-color: var(--primary-dark);
   background: rgba(255,193,7,0.07);
   color: var(--black);
-}
+} */
 
 .rg-subj-btn--on {
   border-color: var(--black);
@@ -454,6 +454,25 @@
   color: var(--text-muted);
   margin-top: 10px;
   line-height: 1.8;
+}
+
+/* Hover effects — desktop/mouse only, not on mobile taps */
+@media (hover: hover) and (pointer: fine) {
+  .rg-subj-btn:hover {
+    border-color: var(--primary-dark);
+    background: rgba(255,193,7,0.07);
+    color: var(--black);
+  }
+
+  .rg-all-btn:hover {
+    border-color: var(--primary-dark);
+    background: rgba(255,193,7,0.06);
+  }
+
+  .rg-select-option:hover {
+    background: rgba(255,193,7,0.12);
+    color: var(--black);
+  }
 }
 
 /* ── Responsive ── */
@@ -601,4 +620,12 @@
 
 .ft-closed .ft-open-dot {
   background: #ef4444;
+}
+
+.rg-subj-btn,
+.rg-all-btn,
+.rg-select-btn,
+.rg-submit {
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
 }
